@@ -1,7 +1,7 @@
 # **Netflix Content Analysis: Understanding Content Distribution Trends**
 
 ## **Introduction**
-Netflix has revolutionized the way people consume entertainment, offering a vast library of movies and TV shows across the globe. As a data analyst, I aim to dive deep into Netflix’s content distribution strategies to uncover critical insights about:
+Netflix has revolutionized the way people consume entertainment, offering a vast library of movies and TV shows across the globe. Aspiring to become a data analyst, I aim to dive deep into Netflix’s content distribution strategies to uncover critical insights about:
 
 - Genre preferences across regions.
 - Trends in content additions over the years.
