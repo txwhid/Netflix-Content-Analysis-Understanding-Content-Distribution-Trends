@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="netflix_analysis.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure query browser pragmas" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1194"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="netflix_cleaned (1)" custom_title="0" dock_id="1" table="4,19:mainnetflix_cleaned (1)"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000010100ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">	
+
+-- 1. Total Content by Type (Movies vs TV Shows)
+SELECT 
+    type, 
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+GROUP BY 
+    type
+ORDER BY 
+    total_titles DESC;
+
+-- 2. Top 10 Most Common Genres
+SELECT 
+    listed_in AS genre, 
+    COUNT(*) AS genre_count
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+GROUP BY 
+    listed_in
+ORDER BY 
+    genre_count DESC
+LIMIT 10;
+
+-- 3. Top 10 Countries Producing Content
+SELECT 
+    country, 
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    country != 'Unknown'
+GROUP BY 
+    country
+ORDER BY 
+    total_titles DESC
+LIMIT 10;
+
+-- 4. Content Added Over Time (Yearly Trend)
+SELECT 
+    strftime('%Y', date_added) AS year_added, 
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    date_added != 'Not Available'
+GROUP BY 
+    year_added
+ORDER BY 
+    year_added DESC;
+
+-- 5. Content Added by Genre and Type
+SELECT 
+    listed_in AS genre,
+    type,
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    listed_in != 'Unknown'
+GROUP BY 
+    listed_in, type
+ORDER BY 
+    total_titles DESC
+LIMIT 10;
+
+-- 6. Average Duration of Movies
+SELECT 
+    AVG(CAST(SUBSTR(duration, 1, INSTR(duration, ' ') - 1) AS INTEGER)) AS avg_duration_minutes
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    type = 'Movie';
+
+-- 7. TV Shows with Most Seasons
+SELECT 
+    title, 
+    duration
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    type = 'TV Show'
+ORDER BY 
+    CAST(SUBSTR(duration, 1, INSTR(duration, ' ') - 1) AS INTEGER) DESC
+LIMIT 10;
+
+-- 8. Most Frequently Appearing Directors
+SELECT 
+    director, 
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    director != 'Unknown'
+GROUP BY 
+    director
+ORDER BY 
+    total_titles DESC
+LIMIT 10;
+
+-- 9. Number of Titles by Rating
+SELECT 
+    rating, 
+    COUNT(*) AS total_titles
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+GROUP BY 
+    rating
+ORDER BY 
+    total_titles DESC;
+
+-- 10. Most Common Cast Members
+SELECT 
+    &quot;cast&quot; AS cast_member, 
+    COUNT(*) AS appearances
+FROM 
+    &quot;netflix_cleaned (1)&quot;
+WHERE 
+    &quot;cast&quot; != 'Unknown'
+GROUP BY 
+    &quot;cast&quot;
+ORDER BY 
+    appearances DESC
+LIMIT 10;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
