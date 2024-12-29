@@ -155,14 +155,88 @@ Below is a summary of the SQL queries I created, along with the questions they a
 These queries provide a comprehensive view of Netflix’s content strategy, covering content types, genres, countries, and contributors. The insights gained will support the next stage of the project, where I’ll visualize these trends in Power BI to present actionable insights.
 
 ---
+## **Tableau Dashboard**
 
-## Next Steps
-With these queries completed, I will:
-1. Import the query results into Power BI for visualization.
-2. Explore additional insights by combining data dimensions, such as country, genre, and ratings.
-3. Formulate recommendations for Netflix based on the trends observed.
+### **Key Features**
+- **Netflix-Themed Design**:
+  - Black background with Netflix Red (`#E50914`) accents.
+  - White labels and a bold title for a cohesive, professional aesthetic.
+- **Interactive Visualizations**:
+  - Filters for content type, genres, and countries to allow dynamic exploration.
+  - Insights are grouped into the following sections:
+    - **Top 10 Genres**
+    - **Top Contributing Countries**
+    - **Content Added Over Time**
+    - **Longest-Running TV Shows**
+    - **Average Movie Duration**
+    - **Content Type Distribution**
+   
+    ![Screenshot 2024-12-28 at 8 22 06 PM](https://github.com/user-attachments/assets/2acb963a-e2d7-47a8-bb7f-af9be98e3c0a)
+
+
 
 ---
 
-## Feedback and Suggestions
-If you have feedback or ideas for additional queries, feel free to share them. I’m always open to improving this project and exploring new directions!
+### **Steps Taken**
+
+1. **Data Import and Preparation**:
+   - Imported the cleaned `netflix_cleaned.csv` dataset into Tableau.
+   - Ensured consistent formatting and data integrity for smooth visualization.
+
+2. **Chart Development**:
+   - **Top 10 Genres**:
+     - Bar chart showing the most common genres, cleaned and split for accuracy.
+   - **Content Over Time**:
+     - A line chart tracking Netflix’s content growth from 2010 to 2021.
+   - **Longest-Running TV Shows**:
+     - Highlighted shows with the most seasons.
+   - **Average Movie Duration**:
+     - A summary card displaying the average runtime of Netflix movies.
+   - **Top 10 Contributing Countries**:
+     - Bar chart showing the countries producing the most content for Netflix.
+
+3. **Netflix Theme Application**:
+   - Customized colors:
+     - Black background.
+     - Netflix Red for bars and key elements.
+     - White text for labels.
+   - Added the Netflix logo and a bold, descriptive title.
+
+4. **Formatting and Interactivity**:
+   - Applied tooltips, mark labels, and filters for interactivity.
+   - Ensured all visuals were aligned and spaced consistently for a polished look.
+
+---
+ 
+## **Insights and Solutions**
+
+### **Questions Answered**
+1. **Which genres dominate Netflix’s catalog?**  
+   - Drama and Comedy are the most prevalent genres, with Drama leading significantly.  
+2. **Which countries contribute the most content?**  
+   - The United States, India, and the United Kingdom top the list of contributors.  
+3. **How has Netflix’s content grown over time?**  
+   - Netflix saw a sharp increase in content additions after 2015, peaking in 2020.  
+4. **What is the average duration of Netflix movies?**  
+   - The average runtime of Netflix movies is approximately 99 minutes.  
+5. **Which TV shows have the most seasons?**  
+   - Shows like *Zumbos Just Desserts* and *ZZ Top* have the most seasons, reflecting viewer engagement with long-running shows.
+
+---
+
+### **Challenges Faced**
+- **Data Cleaning**:  
+  - Addressing missing values and inconsistent formats across multiple columns was time-consuming. Cleaning nested genres in the `Listed In` column required creating calculated fields.  
+- **SQL Complexity**:  
+  - Writing and testing queries to generate actionable insights while ensuring data accuracy was a technical challenge.  
+- **Dashboard Design**:  
+  - Adapting the Tableau dashboard to a Netflix-themed aesthetic while maintaining clarity required balancing creativity with functionality.  
+- **Interactivity**:  
+  - Implementing interactive filters and ensuring seamless user interaction with the dashboard took significant effort.
+
+---
+
+## **Conclusion**
+This project showcases my ability to work on a complete data analytics pipeline—from cleaning raw data to visualizing insights in an intuitive dashboard. By answering critical business questions, I demonstrated my analytical skills, attention to detail, and creative approach to problem-solving. This journey not only reflects my technical abilities but also my commitment to delivering actionable insights through professional and impactful data visualizations.
+
+Through this project, I have gained valuable experience in SQL, Tableau, and data cleaning, which has strengthened my confidence as I continue to grow as a data analyst.
